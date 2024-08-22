@@ -15,7 +15,7 @@ export async function protectedRoute(Req: Request, Res: Response, Next: NextFunc
     }
 
     try {
-        const decoded = jwt.verify(token, 'secret-key');
+        const decoded = jwt.verify(token, process.env.SECRET_KEY || "secret-key");
         //@ts-ignore
         Req.userId = decoded.userId;
     // next();
