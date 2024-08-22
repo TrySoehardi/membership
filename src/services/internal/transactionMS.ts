@@ -3,7 +3,7 @@ import { BaseService } from "../baseServie";
 export class TransactionMS extends BaseService {
     constructor() {
         super()
-        this.baseUrl = "http://localhost:4000"
+        this.baseUrl = process.env.TRANSACTION_MS || "http://localhost:4000";
     }
 
     public async createAccount(user_id: string | undefined) {
